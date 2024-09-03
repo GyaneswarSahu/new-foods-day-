@@ -19,13 +19,7 @@ $(document).ready(function () {
                 { name: "Pasta", image: "./images/dish(4).jpeg", price: 10.99, description: "Creamy Alfredo pasta." }
             ]
         }
-        , {
-            category: "Main Course",
-            items: [
-                { name: "Grilled Chicken", image: "./images/dish(3).jpeg", price: 12.99, description: "Juicy grilled chicken." },
-                { name: "Pasta", image: "./images/dish(4).jpeg", price: 10.99, description: "Creamy Alfredo pasta." }
-            ]
-        }
+        
     ];
 
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
