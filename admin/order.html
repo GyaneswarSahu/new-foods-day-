@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Orders</title>
+    <script src="https://kit.fontawesome.com/1ba2b0d308.js" crossorigin="anonymous"></script> 
+    <link href="../css/style2.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .container { margin-top: 50px;
+        border: 2px solid green;
+    border-radius: 5px; }
+        .table img { max-width: 50px; }
+        .status{
+            height: 25px;
+      
+            border-radius: 5px;
+            background: rgb(70, 156, 70);
+            font-weight: bold;
+          width: fit-content;
+        }
+        .btnn{
+          
+            border-radius: 5px;
+            height: 35px;
+         
+          width: fit-content;
+          
+
+        }
+        .headings{
+    margin-left: 210px;
+    font-size: x-large;
+font-weight: bold;
+  }
+  .sideheading{
+    font-size: small;
+    font-weight: bold;
+  }
+ .headingr{
+    float: right;
+    font-size: small;
+    font-weight: 400;
+    margin-right: 250px; 
+ }
+    </style>
+</head>
+<body>
+    
+
+
+
+    <div class="admin-header d-flex justify-content-between align-items-center p-2 panelcolora text-white">
+        <div class="d-flex align-items-center  leftpanel">
+            <img src="../images/restaurant_logo.png" alt="Logo" class="logo mr-2">
+            <a href="index.html" class="text-white">Home</a>
+            
+            <!-- Dropdown Menu -->
+            <div class="dropdown ml-3 panelcolora">
+                <button class="btn btn-primary dropdown-toggle panelcolora " type="button" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
+                    Mastrey Entry
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="mainitem.html">Main Items</a>
+                    <a class="dropdown-item" href="subitem.html">Sub Items</a>
+                    <a class="dropdown-item" href="#">Action 3</a>
+                </div>
+            </div>
+        </div>
+
+
+      
+        <div class="d-flex align-items-center">
+            <div class="order-icon ml-3 position-relative cart">
+                
+                <a href="../order.html"><i class="fa-solid fa-gavel fa-rotate-270" style="color: #f7f9fd;"></i><span class="order-count badge badge-danger position-absolute">
+                    5</span></a>
+            </div>
+
+            <div class="adminicon"> <i class="fa-solid fa-circle-user fa-lg" style="color: #b9bcc1;"></i><span>Hi,Admin</span>&nbsp;
+            </div>
+          <div>  <a href="admin_settings.html"><i class="fa-solid fa-gears fa-sm" style="color: #ffffff;"></i>
+          </div> </a>  
+        
+
+       
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <br><br>
+    <div class=" container1  "> <div class="headings">CUSTOMER'S ORDERS DETAILS <span class="sideheading"> Easly Managed Customer detail's</span>
+        <div  class="headingr"> <i class="fa-solid fa-gauge-high " style="color: #3b3d3f;"></i> Home > Customer order's</div></div>
+    <div class="container">
+      
+        <table class="table ">
+            <br>
+            <h4>Custumer's Order Details</h4>
+            <thead>
+                <tr>
+                    <th>Serial No</th>
+                    <th>Customer Name</th>
+                    <th>Mobile Number</th>
+                    <th>Address</th>
+                    <th>Area</th>
+                    <th>Status</th>
+                    <th>Order Date</th>
+                    <th>Time</th>
+                    <th>View</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="orderTableBody">
+                <!-- Orders will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../js/adminindex.js"></script>
+    <script src="../js/adminnavbar.js"></script>
+    <script>
+        const orders = [
+            { serialNo: 1, name: 'John Doe', mobile: '1234567890', address: '123 Main St', area: 'Downtown', status: 'Pending', orderDate: '2024-06-11', time: '12:30' },
+            { serialNo: 2, name: 'Jane Smith', mobile: '0987654321', address: '456 Elm St', area: 'Uptown', status: 'Delivered', orderDate: '2024-06-10', time: '14:00' }
+            // Add more orders as needed
+        ];
+
+        function loadOrders() {
+            const orderTableBody = document.getElementById('orderTableBody');
+            orderTableBody.innerHTML = '';
+            orders.forEach(order => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${order.serialNo}</td>
+                    <td>${order.name}</td>
+                    <td>${order.mobile}</td>
+                    <td>${order.address}</td>
+                    <td>${order.area}</td>
+                    <td > <div class="status text-white " >${order.status}<div/></td>
+                    <td>${order.orderDate}</td>
+                    <td>${order.time}</td>
+                    <td><button class="btn btn-warning btnn text-white " onclick="viewOrder(${order.serialNo})"><i class="fa-regular fa-pen-to-square fa-sm" style="color: #fff;"></i> View</button></td>
+                    <td><button class="btn btn-danger btnn text-white" onclick="deleteOrder(${order.serialNo})"><i class="fa-regular fa-trash-can fa-sm" style="color: #fff;"></i> Remove</button></td>
+                `;
+                orderTableBody.appendChild(row);
+            });
+        }
+
+        function viewOrder(serialNo) {
+            localStorage.setItem('viewOrderSerialNo', serialNo);
+            window.location.href = 'view-order.html';
+        }
+
+        function deleteOrder(serialNo) {
+            const orderIndex = orders.findIndex(order => order.serialNo === serialNo);
+            if (orderIndex > -1) {
+                orders.splice(orderIndex, 1);
+                loadOrders();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadOrders);
+    </script>
+</body>
+</html>

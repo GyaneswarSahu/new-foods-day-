@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Sub Item</title>
+ 
+    <link href="../css/style2.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1ba2b0d308.js" crossorigin="anonymous"></script> 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+   
+    <style>
+          /* .container { margin-top: 50px; }
+            table { width: 100%; margin-top: 20px; }
+            th, td { text-align: center; }
+            .table-buttons { margin: 20px 0; } */
+
+.dash{
+    float: right;
+    margin-right: 300px;
+    font-size:x-small;
+    color: black;
+    margin-top: 20px;
+}
+.input{
+    margin-bottom: 10px;
+}
+.container{
+    border:2px solid yellow
+
+}
+.subitemheading{
+    background: rgb(221, 127, 19);
+    margin-bottom: 5px;
+    height: 35px;
+
+}
+.dash3{
+    font-size: small;
+}
+
+    </style>
+</head>
+
+
+
+<body>
+
+    <div class="admin-header d-flex justify-content-between align-items-center p-2 panelcolora text-white">
+        <div class="d-flex align-items-center  leftpanel">
+            <img src="../images/restaurant_logo.png" alt="Logo" class="logo mr-2">
+            <a href="index.html" class="text-white">Home</a>
+            
+            <!-- Dropdown Menu -->
+            <div class="dropdown ml-3 panelcolora">
+                <button class="btn btn-primary dropdown-toggle panelcolora"  type="button" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
+                    Mastrey Entry
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="mainitem.html">Main Items</a>
+                    <a class="dropdown-item" href="subitem.html">Sub Items</a>
+                    <a class="dropdown-item" href="#">Action 3</a>
+                </div>
+            </div>
+        </div>
+
+
+
+      
+        <div class="d-flex align-items-center">
+            <div class="order-icon ml-3 position-relative cart">
+                
+                <a href="../order.html"><i class="fa-solid fa-gavel fa-rotate-270" style="color: #f7f9fd;"></i><span class="order-count badge badge-danger position-absolute">
+                    5</span></a>
+            </div>
+
+            <div class="adminicon"> <i class="fa-solid fa-circle-user fa-lg" style="color: #b9bcc1;"></i><span>Hi,Admin</span>&nbsp;
+            </div>
+          <div>  <a href="admin_settings.html"><i class="fa-solid fa-gears fa-sm" style="color: #ffffff;"></i>
+          </div> </a>  
+        
+
+       
+        </div>
+    </div>
+   
+    <h3 style="margin-left: 220px;">SUB FOOD ITEMS <span class="dash3">Easly Managed Sub Items</span>      <span class="dash"><i class="fa-solid fa-gauge-high " style="color: #3b3d3f;"></i>  Home > Sub Food Items</span></h3>
+
+
+
+
+        <div class="container">
+           
+
+           
+    <h6 class="subitemheading mt-12 text-white ">Add Sub-Items Details </h6>
+
+
+
+            <form id="addSubItemForm">
+                <div class="form-row">
+                    <div class="form-group col-md-12 ">
+                     
+
+
+                        <select class="form-control" id="mainItem">
+                            <option value="">Select Main Item</option>
+                            <!-- Options will be dynamically added here -->
+                        </select>
+                      
+                        
+                        <input type="text" class="form-control input" id="subItem" placeholder="Sub Item">
+             
+                        
+                        <input type="number" class="form-control input" id="price" placeholder="Price">
+                    
+                   
+                       
+                        <input type="file" class="form-control-file input" id="image">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Sub Item</button>
+            </form>
+        </div>
+
+        <br>
+        <div class="container">
+    
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th>Select</th>
+                        <th>Serial Number</th>
+                        <th>Main Item</th>
+                        <th>Sub Item</th>
+                        <th>Image</th>
+                        <th>Type</th>
+                        <th>Price</th>
+                        <th>Active</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="subItemList">
+                    <!-- Sub item rows will be appended here dynamically -->
+                </tbody>
+            </table>
+            <div class="table-buttons">
+                <button id="resetTable" class="btn btn-danger">Reset Table</button>
+            </div>
+        </div>
+    
+        
+    
+    
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../js/adminindex.js"></script>
+    <script src="../js/adminnavbar.js"></script>
+    <script>
+
+    let subItems = JSON.parse(localStorage.getItem('subItems')) || [];
+    let mainItems = ['Main Item 1', 'Main Item 2', 'Main Item 3']; // Example main items
+
+    document.addEventListener('DOMContentLoaded', function() {
+        renderMainItemOptions();
+        renderSubItems();
+    });
+
+    function renderMainItemOptions() {
+        const mainItemSelect = document.getElementById('mainItem');
+        mainItems.forEach(item => {
+            const option = document.createElement('option');
+            option.value = item;
+            option.textContent = item;
+            mainItemSelect.appendChild(option);
+        });
+    }
+
+    document.getElementById('addSubItemForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const mainItem = document.getElementById('mainItem').value;
+        const subItem = document.getElementById('subItem').value;
+        const price = document.getElementById('price').value;
+        const imageInput = document.getElementById('image').files[0];
+
+        if (mainItem && subItem && price && imageInput) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const newSubItem = {
+                    id: Date.now(),
+                    mainItem,
+                    subItem,
+                    price,
+                    image: e.target.result,
+                    type: 'Type',
+                    active: true
+                };
+                subItems.push(newSubItem);
+                localStorage.setItem('subItems', JSON.stringify(subItems));
+                appendSubItemToTable(newSubItem);
+                document.getElementById('addSubItemForm').reset();
+            };
+            reader.readAsDataURL(imageInput);
+        } else {
+            alert('Please fill out all fields and select an image.');
+        }
+    });
+
+    function appendSubItemToTable(subItem) {
+        const subItemList = document.getElementById('subItemList');
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td><input type="checkbox" class="select-sub-item" data-id="${subItem.id}"></td>
+            <td>${subItemList.children.length + 1}</td>
+            <td>${subItem.mainItem}</td>
+            <td><i class="fa-solid fa-utensils fa-sm" style="color: #0d0d0d;"></i>  &nbsp  ${subItem.subItem}</td>
+            <td><img src="${subItem.image}" alt="Image" style="width: 50px;"></td>
+            <td>${subItem.type}</td>
+            <td>${subItem.price}</td>
+            <td>${subItem.active ? 'Yes' : 'No'}</td>
+            <td><button class="btn btn-sm btn-warning edit-btn" data-id="${subItem.id}">Edit</button></td>
+            <td><button class="btn btn-sm btn-danger delete-btn" data-id="${subItem.id}">Delete</button></td>
+        `;
+        subItemList.appendChild(row);
+    }
+
+    function renderSubItems() {
+        subItems.forEach(subItem => appendSubItemToTable(subItem));
+    }
+
+    document.getElementById('resetTable').addEventListener('click', function () {
+        const selectedSubItems = document.querySelectorAll('.select-sub-item:checked');
+        selectedSubItems.forEach(item => {
+            const subItemId = item.getAttribute('data-id');
+            subItems = subItems.filter(subItem => subItem.id != subItemId);
+            item.closest('tr').remove();
+        });
+        localStorage.setItem('subItems', JSON.stringify(subItems));
+        reindexSerialNumbers();
+    });
+
+    document.addEventListener('click', function (e) {
+        if (e.target.classList.contains('edit-btn')) {
+            const subItemId = e.target.getAttribute('data-id');
+            localStorage.setItem('editSubItemId', subItemId);
+            window.location.href = 'editsubitem.html';
+        }
+        if (e.target.classList.contains('delete-btn')) {
+            const subItemId = e.target.getAttribute('data-id');
+            subItems = subItems.filter(subItem => subItem.id != subItemId);
+            localStorage.setItem('subItems', JSON.stringify(subItems));
+            e.target.closest('tr').remove();
+            reindexSerialNumbers();
+        }
+    });
+
+    function reindexSerialNumbers() {
+        const rows = document.querySelectorAll('#subItemList tr');
+        rows.forEach((row, index) => {
+            row.children[1].textContent = index + 1;
+        });
+    }
+</script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Menu </title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1ba2b0d308.js" crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+   <link href="../css/style2.css" rel="stylesheet">
+    
+
+   
+ 
+    <style>
+        body {
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            background: rgb(255, 255, 255);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        table th, table td {
+            vertical-align: middle !important;
+        }
+        .btn-reset {
+            background-color: red;
+            color: white;
+        }
+        .icon-bg {
+            position: absolute;
+            right: 10px;
+            top: calc(50% - 12px);
+            pointer-events: none;
+        }
+        .heading1{
+            margin-right: 890px;
+        }
+        .heading2{
+            background: green;
+            border-radius: 5px;
+            color: #f8f9fa;
+            margin-bottom: 25px;
+
+        
+           
+        }
+        .container{
+            border: 2px solid green;
+        }
+        .heading1a{
+     
+            margin-left: 180px;
+            
+
+        }
+        .bold{
+            font-size: small;
+        }
+        .edit{
+            color: #f8f9fa;
+        }
+        .home_dashboardmain{
+            margin-bottom: 250px;
+            box-shadow: none;
+          
+            height: 50px;
+    
+
+        }
+    
+    </style>
+</head>
+<body>
+
+
+
+    <div class="admin-header d-flex justify-content-between align-items-center p-2 panelcolora text-white">
+        <div class="d-flex align-items-center  leftpanel">
+            <img src="../images/restaurant_logo.png" alt="Logo" class="logo mr-2">
+            <a href="index.html" class="text-white">Home</a>
+            
+            <!-- Dropdown Menu -->
+            <div class="dropdown ml-3 panelcolora">
+                <button class="btn btn-secondary dropdown-toggle panelcolora " type="button" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
+                    Mastrey Entry
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="mainitem.html">Main Items</a>
+                    <a class="dropdown-item" href="subitem.html">Sub Items</a>
+                    <a class="dropdown-item" href="#">Action 3</a>
+                </div>
+            </div>
+        </div>
+
+
+      
+        
+        <div class="d-flex align-items-center">
+            <div class="order-icon ml-3 position-relative cart">
+                
+                <a href="../order.html"><i class="fa-solid fa-gavel fa-rotate-270" style="color: #f7f9fd;"></i><span class="order-count badge badge-danger position-absolute">
+                    5</span></a>
+            </div>
+
+            <div class="adminicon"> <i class="fa-solid fa-circle-user fa-lg" style="color: #b9bcc1;"></i><span>Hi,Admin</span>&nbsp;
+            </div>
+          <div>  <a href="admin_settings.html"><i class="fa-solid fa-gears fa-sm" style="color: #ffffff;"></i>
+          </div> </a>  
+        
+
+       
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="col-md-3  home_dashboard  home_dashboardmain">
+        <div class="card text-center h3 home_dashboardmain ">
+         
+             <div class="h2" >  <p class="homefont"> <i class="fa-solid fa-gauge-high " style="color: #3b3d3f;"></i>  Home > Main Food Items </p> </div>
+           
+          
+            
+        </div>
+    </div>
+
+
+    <div class="text-left mb-4 heading1a"><h3 >MAIN FOOD ITEMS <span class="bold">Easly Managed Main Items</span></h3></div>
+  
+
+    <div class="container">
+   <div class="heading2 col-md-11">Add Items Details</div>
+
+        <form id="mainItemsForm">
+            <div class="form-row">
+                <div class="form-group col-md-12 aligninput">
+                    
+                    <input type="text" class="form-control col-md-11" id="mainItemName" placeholder="Enter main item name">
+                </div>
+               
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="itemType">Type</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="itemType" id="veg" value="Veg">
+                    <label class="form-check-label" for="veg">Veg</label>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           
+              
+                    <input class="form-check-input" type="radio" name="itemType" id="nonVeg" value="Non-Veg">
+                    <label class="form-check-label" for="nonVeg">Non-Veg</label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           
+               
+        
+                    <input class="form-check-input" type="radio" name="itemType" id="drinks" value="Drinks">
+                    <label class="form-check-label" for="drinks">Drinks</label>
+                </div>
+            </div>
+            <button type="button" class="btn btn-success" onclick="addMainItem()">Submit</button>
+        </form>
+    </div>
+        <hr>
+
+
+        <div class="container ">
+            <h5 class="text-center mb-4 heading1" >Items Details</h5>
+            
+            <table class="table ">
+            <thead>
+                <tr>
+                    <th scope="col">Select</th>
+                    <th scope="col">Sl No</th>
+                    <th scope="col">Item Name</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody id="mainItemsTableBody">
+                <!-- Items will be added here dynamically -->
+            </tbody>
+        </table>
+        <button type="button" class="btn btn-reset" onclick="resetSelectedItems()">Reset Selected Items</button></div>
+        
+       
+        
+  
+
+
+
+<script src="../js/adminnavbar.js"></script>
+<script src="../js/adminindex.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../js/adminindex.js"></script>
+    
+    <script>
+        let mainItems = [];
+        let itemId = 0;
+
+        function addMainItem() {
+            const itemName = document.getElementById('mainItemName').value.trim();
+            const itemType = document.querySelector('input[name="itemType"]:checked')?.value;
+
+            if (itemName && itemType) {
+                const newItem = {
+                    id: ++itemId,
+                    name: itemName,
+                    type: itemType,
+                    status: 'Active'
+                };
+
+                mainItems.push(newItem);
+                updateMainItemsTable();
+                document.getElementById('mainItemsForm').reset();
+            } else {
+                alert('Please fill in all fields.');
+            }
+        }
+
+        function updateMainItemsTable() {
+            const tableBody = document.getElementById('mainItemsTableBody');
+            tableBody.innerHTML = '';
+            mainItems.forEach((item, index) => {
+                const row = document.createElement('tr');
+
+                row.innerHTML = `
+                    <td><input type="checkbox" data-id="${item.id}" class="select-item"></td>
+                    <th scope="row">${index + 1}</th>
+                    <td><i class="fa-solid fa-utensils fa-lg" style="color: #0d0d0d;"></i> &nbsp  ${item.name}</td>
+                    <td>${item.type}</td>
+                    <td>${item.status}</td>
+                    <td><button class="btn btn-sm btn-warning edit" href="edit_item.html" onclick="editItem(${item.id})"><i class="fa-regular fa-pen-to-square fa-sm" style="color: #fff;"></i>  &nbsp  Edit</button></td>
+                    <td><button class="btn btn-sm btn-danger" onclick="deleteItem(${item.id})"><i class="fa-regular fa-trash-can fa-sm" style="color: #fff;"></i> &nbsp   Delete</button></td>
+                `;
+
+                tableBody.appendChild(row);
+            });
+        }
+
+        function resetSelectedItems() {
+            const selectedItems = document.querySelectorAll('.select-item:checked');
+            selectedItems.forEach(item => {
+                const itemId = item.getAttribute('data-id');
+                mainItems = mainItems.filter(mainItem => mainItem.id != itemId);
+            });
+            updateMainItemsTable();
+        }
+
+    
+
+
+        function editItem(id) {
+    const item = mainItems.find(mainItem => mainItem.id === id);
+    if (item) {
+        // Store item data in localStorage
+        localStorage.setItem('editItem', JSON.stringify(item));
+        // Redirect to the edit page
+        window.location.href = 'edit_item.html';
+    }
+}
+
+
+        function deleteItem(id) {
+            mainItems = mainItems.filter(mainItem => mainItem.id !== id);
+            updateMainItemsTable();
+        }
+
+        function editItem(id) {
+    localStorage.setItem('editItemId', id);
+    window.location.href = 'edit_item.html';
+}
+
+    </script>
+
+</body>
+</html>

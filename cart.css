@@ -1,0 +1,208 @@
+
+
+
+ body {
+    font-family: Arial, sans-serif;
+
+}
+
+.navbar {
+    background-color: #1686d1;
+}
+
+.logo {
+    height: 50px;
+}
+
+#wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+#sidebar-wrapper {
+    min-height: 100vh;
+    width: 250px;
+    z-index: 1000;
+    position: fixed;
+    left: -250px;
+    transition: all 0.3s ease-in-out;
+    background-color:#0C2D48 ;
+}
+
+#sidebar-wrapper.active {
+    left: 0;
+}
+
+.sidebar-heading {
+    padding: 1rem 1.5rem;
+    font-size: 1.2rem;
+    background-color: #203244;
+    color: white;
+}
+
+.list-group-item {
+    background-color: #111d2a;
+    color: white;
+    border: none;
+}
+
+.list-group-item:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    padding: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+#wrapper.active #page-content-wrapper {
+    margin-left: 250px;
+}
+
+.restaurant-logo {
+    width: 100%;
+    height: auto;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.collapse {
+    margin-bottom: 20px;
+}
+.img{
+    border: 2px solid red;
+    background-size: cover;
+    height: 100px;
+    width: 100px;
+    margin-top: 30px;
+}
+
+.nameqty{
+    margin-left: 120px;
+    margin-bottom: 120px;
+    
+}
+.card-body1{
+
+    height: 180px;
+}
+.removetotal{
+    margin-top: 50px;
+    margin-right: 20px;
+
+}
+.itemtotal{
+    background: green;
+    color: #ffffff;
+    border-radius: 20%;
+   
+  
+    align-items: center;
+}
+.remove{
+    height: 40px;
+    width: 40px;
+    align-items: center;
+    background: red;
+    border-radius: 50%;
+}
+.backtohp{
+    background: #073b5d;
+ padding-bottom: 8px;
+    height: 30px;
+    font-size: small;
+    border-radius: 10px;
+    align-items: flex-start;
+    justify-items: center;
+}
+#total-amount{
+    background: rgb(40, 152, 40);
+    color: #ffffff;
+    border-radius: 5px;
+    width: fit-content;
+
+}
+.restaurant-logo {
+    width: 100%;
+    height: auto;
+}
+
+.dishcount{
+height: 10px;
+border: 2px solid rgb(40, 193, 220);
+width: 10px;
+
+}
+
+
+
+
+/* order page */
+/* Custom styles for the order page */
+
+.navbar .logo {
+    height: 50px;
+}
+
+.form-group .input-group .input-group-prepend .input-group-text {
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+}
+
+.input-group .input-group-prepend .input-group-text i {
+    font-size: 1.2em;
+}
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-top {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.quantity-select {
+    width: 100px;
+}
+
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 10px;
+    }
+
+    .quantity-select {
+        width: 100%;
+    }
+}

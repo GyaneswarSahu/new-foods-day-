@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style2.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1ba2b0d308.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="admin-header d-flex justify-content-between align-items-center p-2 panelcolora text-white">
+        <div class="d-flex align-items-center  leftpanel">
+            <img src="../images/restaurant_logo.png" alt="Logo" class="logo mr-2">
+            <a href="index.html" class="text-white">Home</a>
+            
+            <!-- Dropdown Menu -->
+            <div class="dropdown ml-3 panelcolora">
+                <button class="btn btn-secondary dropdown-toggle panelcolora " type="button" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
+                    Mastrey Entry
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="mainitem.html">Main Items</a>
+                    <a class="dropdown-item" href="subitem.html">Sub Items</a>
+                    <a class="dropdown-item" href="#">Action 3</a>
+                </div>
+            </div>
+        </div>
+
+
+      
+       
+        <div class="d-flex align-items-center">
+            <div class="order-icon ml-3 position-relative cart">
+                
+                <a href="../order.html"><i class="fa-solid fa-gavel fa-rotate-270" style="color: #f7f9fd;"></i><span class="order-count badge badge-danger position-absolute">
+                    5</span></a>
+            </div>
+
+            <div class="adminicon"> <i class="fa-solid fa-circle-user fa-lg" style="color: #b9bcc1;"></i><span>Hi,Admin</span>&nbsp;
+            </div>
+          <div>  <a href="admin_settings.html"><i class="fa-solid fa-gears fa-sm" style="color: #ffffff;"></i>
+          </div> </a>  
+        
+
+       
+        </div>
+    </div>
+
+    <!-- Dashboard Boxes -->
+    
+    <div class="container mt-4  ">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card text-center h1 ">
+                    <div>
+                        <h5 class="card-title"><h1>Dashboard </h1>
+                           
+                     </div>
+               
+                   
+                  
+                    
+                </div>
+            </div>
+
+            <div class="col-md-3 ">
+                <div class="card text-center h3  ">
+                 
+                     <div class="h2">  <p> <h6> Control Panel</h6></p> </div>
+                   
+                  
+                    
+                </div>
+            </div>
+            <div class="col-md-3  home_dashboard">
+                <div class="card text-center h3  ">
+                 
+                     <div class="h2">  <p class="homefont"> <i class="fa-solid fa-gauge-high " style="color: #3b3d3f;"></i> Home > Dashboard </p> </div>
+                   
+                  
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+            
+ 
+    <div class="container mt-8">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card text-center d1">
+                    <div class="card-body text-left">
+                     <h4 class="card-title iconalign"><h1>2</h1> New Orders</h4>
+                      </div>
+                        
+                    
+                    <div class="d5"><h6>More Info&nbsp;&nbsp;<i class="fa-regular fa-circle-right" style="color: #ffffff;">&nbsp;&nbsp;</i></h6></div>
+                </div>
+            </div>
+                     
+           
+
+            <div class="col-md-3">
+                <div class="card text-center d2">
+                    <div class="card-body text-left">
+                     <h4 class="card-title iconalign"><h1>1</h1> Delyvery Orders</h4>
+                      </div>
+                        
+                    
+                    <div class="d6"><h6>More Info&nbsp;&nbsp;<i class="fa-regular fa-circle-right" style="color: #ffffff;">&nbsp;&nbsp;</i></h6></div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center d3">
+                    <div class="card-body text-left">
+                     <h4 class="card-title iconalign"><h1>44</h1> Order Report</h4>
+                      </div>
+                        
+                    
+                    <div class="d7"><h6>More Info&nbsp;&nbsp;<i class="fa-regular fa-circle-right" style="color: #ffffff;">&nbsp;&nbsp;</i></h6></div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center d4">
+                    <div class="card-body text-left">
+                     <h4 class="card-title iconalign"><h1>65</h1>Settings</h4>
+                      </div>
+                        
+                    
+                    <div class="d8"><h6>More Info &nbsp;&nbsp;<i class="fa-regular fa-circle-right" style="color: #ffffff;">&nbsp;&nbsp;</i></h6></div >
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../js/adminindex.js"></script>
+    <script src="../js/adminnavbar.js"> </script>
+     
+   
+</body>
+</html>

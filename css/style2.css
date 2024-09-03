@@ -1,0 +1,91 @@
+
+/* admin */
+
+.cart{
+    margin-right:80px ;
+}
+.panelcolora{
+    background: #007bff;
+}   
+
+.d1{
+    /* background: rgb(9, 81, 234); */
+    background:url(../images/bag.jpg);
+    background-size: cover;
+    height: 150px;
+
+}
+.d2{
+    background:url(../images/chart.png);
+    background-size: cover;
+    height: 150px;
+
+}
+.d3{
+    background:url(../images/userc.png);
+    background-size: cover;
+    height: 150px;
+
+}
+.d4{
+    background:url(../images/pie.png);
+    background-size: cover;
+    height: 150px;
+
+}
+
+.d5{
+    background: rgb(4, 58, 194);
+    color: #ffffff;
+}
+.d6{
+background: #228d0f;
+color: #ffffff;
+}
+.d7{
+    background: rgb(179, 121, 4);
+    color: #ffffff;
+}
+.d8{
+    background: rgba(185, 7, 7, 0.771);
+    color: #ffffff;
+
+}
+.heading{
+    border: 2px solid red;
+
+}
+.h1{
+    border: 2px solid rgb(255, 255, 255);
+}
+.h2{
+   margin-top: 25px;
+   width: 100px;
+/* border: 2px solid red; */
+}
+.h3{
+
+margin-right: 70px;
+border: 2px solid rgb(255, 255, 255);
+ }
+.iconalign{
+    padding-right: 120px;
+    /* padding-top: 60px; */
+}
+.leftpanel{
+    margin-left: 100px;
+}
+.home_dashboard{
+    float: right;
+    margin-left: 250px;
+   
+}
+.homefont{
+    color: rgb(17, 15, 15);
+    font-size: x-small;
+    
+}
+.adminicon{
+    
+    margin-right: 50px;
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - Restaurant Food Ordering System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar navbar-expand-lg navbar-light ">
+        
+        <a class="navbar-brand text-white" href="index.html"><img src="restaurant_logo.png" alt="Company Logo" class="logo"></a>
+        <button class="btn btn-primary " id="menu-toggle"><i class="fas fa-bars"></i></button>
+        <div class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav">
+                <li class="nav-item text-white">
+                    <a class="nav-link text-white " href="#"><i class="fas fa-user fa-sm" style="color: #ffffff;"></i> Username</a>
+                </li>
+               
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="cart.html"><i class="fas fa-shopping-cart"></i> <span id="cart-count" class="badge badge-pill badge-danger">0</span></a>
+                </li>
+
+                <li class="nav-item">
+                    <li class="nav-item">
+                       <a class="nav-link text-white" href=""><i class="fas fa-cogs fa-sm" style="color: #ffffff;"></i></a> 
+            </ul>
+        </div>
+    </div>
+
+    <div id="wrapper" class="d-flex">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper" class="bg-dark border-right">
+            <div class="sidebar-heading">
+                <img src="the delights.png"class="restaurant-logo" alt="Restaurantimg">
+            <h3>restaurant name</h3></div>
+            <div class="list-group list-group-flush">
+                <a href="#collapseAppetizers" class="list-group-item list-group-item-action sidebar-menu" data-target="#collapseAppetizers"><i class="fas fa-dot-circle fa-sm" style="color: #ff0000;"></i> Appetizers    <span class="dishcount">2</span></a>
+                <a href="#collapseMainCourse" class="list-group-item list-group-item-action sidebar-menu" data-target="#collapseMainCourse"><i class="fas fa-dot-circle fa-sm" style="color: #00ff37;"></i> Main Course   <span class="dishcount">2</span></a>
+            </div>
+        </div>
+
+        <!-- Page Content -->
+        <div class="container mt-5">
+            <h2 class="mb-4">Your Cart</h2>
+            <div id="cart-items" class="mb-4">
+                <!-- Cart items will be dynamically inserted here -->
+            </div>
+            <div class="d-flex justify-content-between mb-4">
+                <h4>Total Amount:</h4>
+                <h4 id="total-amount">$0.00</h4>
+            </div>
+            <div class="d-flex justify-content-between">
+                <button id="clear-cart" class="btn btn-secondary">Clear Cart</button>
+                <button id="proceed-order" class="btn btn-primary">Proceed to Order</button>
+            </div>
+        </div>
+
+
+
+ 
+    </div>
+    <script src="script.js" ></script>
+</body>
+</html>

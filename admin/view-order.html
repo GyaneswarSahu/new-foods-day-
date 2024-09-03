@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Order</title>
+    <link rel="stylesheet" href="../css/style2.css">
+    <script src="https://kit.fontawesome.com/1ba2b0d308.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .container { 
+            margin-top: 50px;
+        /* border: 2px solid green;
+    border-radius: 5px; */
+ }
+        .row { margin-bottom: 20px; }
+        .customerheading{
+            background: green;
+        }
+        .customertable{
+            border: 2px solid green;
+    border-radius: 5px;
+    width: fit-content;
+        }
+        .ordering{
+            border: 2px solid orange;
+            border-radius: 10px;
+    margin-top: 150px;
+margin-left: 50px;
+      
+        }
+        .orderingheading{
+            background-color: rgb(213, 148, 29);
+        }
+        .dangerbtn{
+            border-radius: 5px;
+
+        }
+
+        .headings{
+    margin-left: 210px;
+    font-size: x-large;
+font-weight: bold;
+  }
+  .sideheading{
+    font-size: small;
+    font-weight: bold;
+  }
+ .headingr{
+    float: right;
+    font-size: small;
+    font-weight: 400;
+    margin-right: 250px; 
+ }
+    </style>
+</head>
+<body>
+
+
+    <div class="admin-header d-flex justify-content-between align-items-center p-2 panelcolora text-white">
+        <div class="d-flex align-items-center  leftpanel">
+            <img src="../images/restaurant_logo.png" alt="Logo" class="logo mr-2">
+            <a href="index.html" class="text-white">Home</a>
+            
+            <!-- Dropdown Menu -->
+            <div class="dropdown ml-3 panelcolora">
+                <button class="btn btn-primary dropdown-toggle  "  style="background: rgb(9, 81, 183);" type="button" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
+                    Mastrey Entry
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="mainitem.html">Main Items</a>
+                    <a class="dropdown-item" href="subitem.html">Sub Items</a>
+                    <a class="dropdown-item" href="#">Action 3</a>
+                </div>
+            </div>
+        </div>
+
+
+      
+      
+        <div class="d-flex align-items-center">
+            <div class="order-icon ml-3 position-relative cart">
+                
+                <a href="../order.html"><i class="fa-solid fa-gavel fa-rotate-270" style="color: #f7f9fd;"></i><span class="order-count badge badge-danger position-absolute">
+                    5</span></a>
+            </div>
+
+            <div class="adminicon"> <i class="fa-solid fa-circle-user fa-lg" style="color: #b9bcc1;"></i><span>Hi,Admin</span>&nbsp;
+            </div>
+          <div>  <a href="admin_settings.html"><i class="fa-solid fa-gears fa-sm" style="color: #ffffff;"></i>
+          </div> </a>  
+        
+
+       
+        </div>
+    </div>
+
+
+<br><br>
+
+
+
+
+    <div class=" container1  "> <div class="headings">CUSTOMER & ORDER DETAILS <span class="sideheading"></span>
+        <div  class="headingr"> <i class="fa-solid fa-gauge-high " style="color: #3b3d3f;"></i> Home > Customer & Order Details</div></div>
+        
+    <div class="container">
+       
+        <div class="row">
+            <div class="col-md-6 table-bordered customertable ">
+                <h5 class="customerheading text-white" >Customer Details</h5>
+                <p><strong>Name:</strong> <span id="customerName"></span></p>
+                <p><strong>Email:</strong> <span id="customerEmail"></span></p>
+                <p><strong>Mobile Number:</strong> <span id="customerMobile"></span></p>
+                <p><strong>Address:</strong> <span id="customerAddress"></span></p>
+                <p><strong>Area:</strong> <span id="customerArea"></span></p>
+                <p><strong>Landmark:</strong> <span id="customerLandmark"></span></p>
+                <p><strong>Delivery Date:</strong> <span id="deliveryDate"></span></p>
+                <p><strong>Delivery Time:</strong> <span id="deliveryTime"></span></p>
+            </div>
+
+            <div class="col-md-5 ordering">
+                <h5 class="orderingheading text-white">Ordering Details</h5>
+                <table class="table table-bordered ">
+                    <thead>
+                        <tr>
+                            <th>Serial No</th>
+                            <th>Item</th>
+                            <th>Quantity</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody id="orderItemsTableBody">
+                        <!-- Ordered items will be dynamically added here -->
+                    </tbody>
+                </table>
+                <p><strong>Total Amount:</strong> <span id="totalAmount"></span></p>
+                <button class="btn btn-primary" onclick="generateBill()"><a href="../generate-bill.html"></a>Generate Bill</button>
+                <button class=" btn-danger dangerbtn" onclick="goBack()">Back</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="../js/adminindex.js"></script>
+    <script src="../js/adminnavbar.js"></script>
+    <script>
+        const orders = [
+            { serialNo: 1, name: 'John Doe', email: 'john@example.com', mobile: '1234567890', address: '123 Main St', area: 'Downtown', landmark: 'Near Park', deliveryDate: '2024-06-12', deliveryTime: '13:00', items: [{ serialNo: 1, item: 'Pizza', quantity: 2, amount: 20 }, { serialNo: 2, item: 'Pasta', quantity: 1, amount: 15 }] },
+            { serialNo: 2, name: 'Jane Smith', email: 'jane@example.com', mobile: '0987654321', address: '456 Elm St', area: 'Uptown', landmark: 'Near Mall', deliveryDate: '2024-06-10', deliveryTime: '15:00', items: [{ serialNo: 1, item: 'Burger', quantity: 3, amount: 30 }, { serialNo: 2, item: 'Fries', quantity: 2, amount: 10 }] }
+            // Add more orders as needed
+        ];
+
+        function loadOrderDetails() {
+            const serialNo = parseInt(localStorage.getItem('viewOrderSerialNo'));
+            const order = orders.find(order => order.serialNo === serialNo);
+
+            if (order) {
+                document.getElementById('customerName').textContent = order.name;
+                document.getElementById('customerEmail').textContent = order.email;
+                document.getElementById('customerMobile').textContent = order.mobile;
+                document.getElementById('customerAddress').textContent = order.address;
+                document.getElementById('customerArea').textContent = order.area;
+                document.getElementById('customerLandmark').textContent = order.landmark;
+                document.getElementById('deliveryDate').textContent = order.deliveryDate;
+                document.getElementById('deliveryTime').textContent = order.deliveryTime;
+
+                const orderItemsTableBody = document.getElementById('orderItemsTableBody');
+                orderItemsTableBody.innerHTML = '';
+                let totalAmount = 0;
+                order.items.forEach(item => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${item.serialNo}</td>
+                        <td>${item.item}</td>
+                        <td>${item.quantity}</td>
+                        <td>$${item.amount}</td>
+                    `;
+                    totalAmount += item.amount * item.quantity;
+                    orderItemsTableBody.appendChild(row);
+                });
+
+                document.getElementById('totalAmount').textContent = `$${totalAmount}`;
+            }
+        }
+        function generateBill() {
+            window.location.href = 'generate-bill.html';
+        }
+
+
+        function goBack() {
+            window.history.back();
+        }
+
+        document.addEventListener('DOMContentLoaded', loadOrderDetails);
+    </script>
+</body>
+</html>

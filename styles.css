@@ -1,0 +1,143 @@
+body {
+    padding-top: 56px;
+    background: #ffffff;
+}
+
+.logo {
+    height: 40px;
+}
+
+.restaurant-logo {
+    width: 100%;
+    height: auto;
+}
+
+#sidebar-wrapper {
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
+    position: fixed;
+    left: -250px;
+    transition: all 0.3s;
+}
+
+#sidebar-wrapper.active {
+    left: 0;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    padding: 20px;
+    transition: all 0.3s;
+}
+
+#wrapper.active #page-content-wrapper {
+    margin-left: 250px;
+}
+
+.badge {
+    font-size: 14px;
+}
+
+.menu-category {
+    cursor: pointer;
+    background: orange;
+    color: #e9ecef;
+    font-size: x-small;
+}
+
+.sidemenubg {
+    background: #0C2D48;
+    color: #ced4da;
+}
+
+.sidemenubg:hover {
+    color: #000000;
+}
+
+.sidewrapperbg {
+    background: #0C2D48;
+}
+
+.col-md-4 img {
+    height: 150px;
+    width: 150px;
+    background-size: cover;
+}
+
+.dishcount {
+    height: 10px;
+    border: 2px solid rgb(40, 193, 220);
+    width: 10px;
+}
+
+.card {
+    background: red;
+    width: 180px;
+    background-color: #e9ecef;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.accordion-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.accordion-item {
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 15px;
+    text-align: left;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.accordion-header:hover {
+    background-color: #0056b3;
+}
+
+.accordion-content {
+    display: none;
+    padding: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+    display: flex; /* Ensure flexbox is applied for responsive design */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card {
+        flex: 1 1 calc(50% - 10px); /* Two columns for medium screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .accordion-content {
+        flex-direction: column; /* Stack cards in a single column on small screens */
+    }
+
+    .card {
+        flex: 1 1 100%; /* Full width cards */
+    }
+}

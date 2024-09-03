@@ -1,0 +1,303 @@
+  /* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* User panel styles */
+.container-fluid.bg-dark {
+    padding: 10px 20px;
+}
+
+.d-flex.align-items-center img {
+    margin-right: 10px;
+}
+
+/* Cart count badge */
+#cartCount {
+    font-size: 15px;
+    position: relative;
+    top: -4px;
+    color: rgb(255, 255, 255);
+    border: solid rgb(255, 10, 10);
+    border-radius: 50%;
+}
+
+/* Side menu bar styles */
+#sidebar {
+    height: 100vh;
+    width: auto;
+    position:fixed;
+    top: 80px;
+ 
+    overflow-y: auto;
+}
+
+.sidebar-header {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.sidebar-header img {
+    width: 80px;
+    margin-bottom: 10px;
+}
+
+.sidebar-header h3 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.list-unstyled.components li {
+    padding: 10px 0;
+    border-bottom: 1px solid #0f0909;
+}
+
+.list-unstyled.components li:last-child {
+    border-bottom: none;
+}
+
+.list-unstyled.components li a {
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+}
+
+.list-unstyled.components li a:hover {
+    color: #007bff;
+}
+
+.list-unstyled.components li a i {
+    margin-left: 5px;
+}
+
+.list-unstyled.components li a span {
+    background-color: #007bff;
+    color: white;
+    border-radius: 10px;
+    padding: 0 6px;
+    font-size: 12px;
+}
+
+/* Main content styles */
+.container-fluid {
+    margin-left: 250px;
+    padding-top: 20px;
+    /* padding-left: 50px; */
+}
+
+/* Banner sliding styles */
+.carousel {
+    margin-bottom: 20px;
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: auto;
+}
+
+/* Category and dish styles */
+.category {
+    margin-bottom: 20px;
+}
+
+.category h4 {
+    cursor: pointer;
+}
+
+.card {
+    margin-bottom: 10px;
+}
+
+.card-body img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.add-to-cart {
+    margin-top: 10px;
+}
+.round{
+  
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+
+
+
+}
+.round2{
+    height: 60px;
+    width: 60px;
+}
+.panelcolor{
+    background-color: #5739ba;
+ 
+
+}
+.textcolor{
+    color: white;
+    /* background: #333; */
+}
+.dishnumber{
+    border: 2px solid rgb(7, 95, 227);
+    border-radius: 50%;
+    height: 18px;
+    width: 18px;
+}
+.dishnumberallign{
+    align-items: center;
+    justify-content: center;
+    padding:5px;
+}
+/* .position{
+    position: sticky;
+} */
+.menubg{
+    background-color: rgba(255, 192, 2, 0.943);
+    height: 65px;
+    text-align:left;
+    padding-top: 25px;
+ 
+    
+}
+.allignicon{
+    /* color: #ffffff; */
+float: right;
+}
+/* #ax{
+    padding-bottom: 7px;
+} */
+
+/*cart css*/
+.cartjs{
+    margin-left: 200px;
+}
+.cartjs2{
+    margin-left: 280px;
+}
+
+
+.total{
+    background: green;
+    color: #ffffff;
+ 
+  border-radius: 25px;
+    /* align-items: end; */
+}
+#totalAmount{
+    float: right;
+}
+
+.dishname{
+    color: #007bff;
+   
+padding-right: 350px;
+   
+}
+.incdcm{
+    
+       margin-right: 150px;
+      
+   
+   }
+   .ccc{
+    padding: left 100px; ;
+   }
+
+   .ppp{
+    float: right;
+
+   }
+   .aopo{
+    float: left;
+
+   }
+   .btn-block{
+    background: #103a67;
+
+   }
+
+
+/* order css */
+
+.formstyle{
+    border: 5px solid black;
+}
+/* .allign{
+    float: left;
+    width: 150px;
+} */
+.orderalign{
+    margin-left:80px;
+}
+body {
+    font-family: Arial, sans-serif;
+}
+
+.user-panel {
+    /* background-color: #343a40; */
+    /* color: rgb(4, 6, 50); */
+    padding: 10px;
+}
+
+.user-panel img {
+    border-radius: 50%;
+}
+
+.side-menu {
+    width: 250px;
+    position: fixed;
+    height: 100%;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    /* background-color: #071e35; */
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.side-menu .list-group-item {
+    padding: 20px 10px;
+}
+
+#menuToggle {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+}
+
+.content {
+    margin-left: 260px;
+    padding: 20px;
+    transition: margin-left 0.5s;
+}
+
+#sideMenu.active {
+    width: 0;
+}
+
+#sideMenu.active .list-group-item,
+#sideMenu.active .sidebar-heading {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .side-menu {
+        width: 0;
+    }
+
+    .content {
+        margin-left: 0;
+    }
+
+    #sideMenu.active {
+        width: 250px;
+    }
+}
+
+

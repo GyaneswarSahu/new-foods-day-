@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Accordion with Cards</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+
+ <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+.accordion-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.accordion-item {
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 15px;
+    text-align: left;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.accordion-header:hover {
+    background-color: #0056b3;
+}
+
+.accordion-content {
+    display: none;
+    padding: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+    display: flex; /* Ensure flexbox is applied for responsive design */
+}
+
+.card {
+    flex: 1 1 calc(33.333% - 10px); /* Default to 3 columns */
+    background-color: #e9ecef;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card {
+        flex: 1 1 calc(50% - 10px); /* Two columns for medium screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .accordion-content {
+        flex-direction: column; /* Stack cards in a single column on small screens */
+    }
+    
+    .card {
+        flex: 1 1 100%; /* Full width cards */
+    }
+}
+
+ </style>
+<body>
+    <div class="container mt-4">
+        <div id="menu-items">
+          
+       
+            
+            
+        </div>
+    </div>
+    <div id="menu-items"></div>
+    <div class="accordion-container">
+        <div class="accordion-item">
+            <button class="accordion-header">Section 1</button>
+            <div class="accordion-content">
+                <div class="card">Card 1</div>
+                <div class="card">Card 2</div>
+                <div class="card">Card 3</div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <button class="accordion-header">Section 2</button>
+            <div class="accordion-content">
+                <div class="card">Card 4</div>
+                <div class="card">Card 5</div>
+                <div class="card">Card 6</div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <button class="accordion-header">Section 3</button>
+            <div class="accordion-content">
+                <div class="card">Card 7</div>
+                <div class="card">Card 8</div>
+                <div class="card">Card 9</div>
+            </div>
+        </div>
+    </div>
+
+    <script  >
+       document.querySelectorAll('.accordion-header').forEach(header => {
+    header.addEventListener('click', function() {
+        const content = this.nextElementSibling;
+        content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+    });
+});
+
+
+    </script>
+    <script src="script.js">
+
+    </script>
+</body>
+</html>

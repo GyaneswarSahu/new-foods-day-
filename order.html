@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order - Restaurant Food Ordering System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="cart.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+   
+    <!-- Navbar -->
+    <div class="navbar navbar-expand-lg navbar-light text-white">
+       
+        <a class="navbar-brand text-white" href="#"><img src="restaurant_logo.png" alt="Company Logo" class="logo"></a>
+        <button class="btn btn-primary" id="menu-toggle"><i class="fas fa-bars"></i></button>
+
+        <div class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Username</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#"><i class="fas fa-cog"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="cart.html"><i class="fas fa-shopping-cart"></i> <span id="cart-count" class="badge badge-pill badge-danger">0</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Sidebar with Menu -->
+    <div class="d-flex" id="wrapper">
+        <div class=" border-right" style="background:#073b5d ;" id="sidebar-wrapper" >
+            <div class="sidebar-heading">
+                <img src="the delights.png" alt="Restaurant Logo" class="restaurant-logo">
+                <h3>Restaurant Name</h3>
+            </div>
+            <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action sidebar-menu" data-target="#collapse0"><i class="fas fa-dot-circle fa-sm" style="color: #ff1202;"></i>       Appetizers <span class="dishcount">2</span></a>
+                <a href="#" class="list-group-item list-group-item-action sidebar-menu" data-target="#collapse1"><i class="fas fa-dot-circle fa-sm" style="color: #00ff37;"></i> Main Course <span class="dishcount">2</span></a>
+            </div>
+        </div>
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+
+    <!-- Order Page Content -->
+    <div class="container mt-4">
+     
+        <form id="order-form">
+
+
+           <div class="backtohp"><a class="btn  "  style="color: aliceblue;"  href="cart.html"> <i class="fas fa-arrow-circle-left fa-sm" style="color: #ffffff;"></i>  BACK TO MY ORDER CART</a></div> 
+
+<br>
+
+            <div class="form-group">
+                <!-- <label for="order-number">Order Number</label> -->
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-gavel" style="color: #d603e9;"></i></span>
+                    </div>
+                    <input type="text" class="form-control" id="order-number" placeholder="OrderNumber" readonly>
+                </div>
+            </div>
+
+         
+
+
+            <div class="form-group">
+                <!-- <label for="total-amount">Total Amount</label> -->
+                <div class="input-group"  >
+                    <div class="input-group-prepend" >
+                        <span class="input-group-text"><i class="fas fa-rupee-sign" style="color: green;"></i></span>
+                    </div>
+                    <input type="text" class="form-control" style="background: white; color: black;" id="total-amount" placeholder="Total Amount" readonly>
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <!-- <label for="name">Enter Name</label> -->
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user" style="color: #ff1202;"></i></span>
+                    </div>
+                    <input type="text" class="form-control" id="name" placeholder="Enter Name" required>
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <!-- <label for="email">Enter Email</label> -->
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-envelope" style="color: rgb(99, 92, 81);"></i></span>
+                    </div>
+                    <input type="email" class="form-control" id="email" placeholder="Enter Email" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <!-- <label for="email">Enter Email</label> -->
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-mobile-alt" style="color: black;"></i></span>
+                    </div>
+                    <input type="number" class="form-control" id="mobilenumber" placeholder="Enter mobilenumber" required>
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <!-- <label for="location">Location</label> -->
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-map-marker-alt" style="color: #d603e9;"></i></span>
+                    </div>
+                    <input type="text" class="form-control" id="location" placeholder="Location" required>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <!-- <label for="address">Delivery Address</label> -->
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-home" style="color: #ff1202;"></i></span>
+                    </div>
+                    <input type="text" class="form-control" id="address" placeholder="Delivery Address" required>
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <!-- <label for="lane">Lane</label> -->
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-road" style="color: #d603e9;"></i></span>
+                    </div>
+                    <input type="text" class="form-control" id="lane" placeholder="Lane" required>
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <!-- <label for="landmark">Landmark</label> -->
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-landmark" style="color: #ff1202;"></i></span>
+                    </div>
+                    <input type="text" class="form-control" id="landmark" placeholder="Landmark" required>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <!-- <label for="delivery-date">Delivery Date</label> -->
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-calendar-alt" style="color: #00ff37;"></i></span>
+                    </div>
+                    <input type="date" class="form-control" id="delivery-date" required>
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <!-- <label for="delivery-time">Delivery Time</label> -->
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-clock" style="color: aqua;"></i></span>
+                    </div>
+                    <input type="time" class="form-control" id="delivery-time" required>
+                </div>
+            </div>
+
+
+
+            <div class="text-center" style="background: green; border-radius: 10px;"><button type="submit" class="btn  text-white">Submit</button></div>
+
+        </form>
+    </div>
+</div>
+</div>
+
+</body>
+</html>

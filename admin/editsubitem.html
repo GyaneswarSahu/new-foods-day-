@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Sub Item</title>
+    
+    <link href="../css/style2.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1ba2b0d308.js" crossorigin="anonymous"></script> 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"  rel="stylesheet" >
+    
+    <style>
+        .container { margin-top: 50px; 
+        border: 2px solid yellow;
+    border-radius: 5px;
+}
+        .form-group img { max-width: 100px; margin-top: 10px; }
+        .dash{
+            float:right;
+            font-size: x-small;
+           
+            margin-right: 150px;
+        }
+        .dash2{
+            margin-left: 200px;
+            margin-top: 100px;
+            /* border: 2px solid red; */
+            font-size: larger;
+            font-weight: bolder;
+        }
+        .main1{
+            background:rgb(216, 108, 13);
+            margin-bottom: 10px;
+        }
+        .input{
+            margin-top: 10px;
+        }
+        .bttn{
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+   
+
+
+    <div class="admin-header d-flex justify-content-between align-items-center p-2 panelcolora text-white">
+        <div class="d-flex align-items-center  leftpanel">
+            <img src="../images/restaurant_logo.png" alt="Logo" class="logo mr-2">
+            <a href="index.html" class="text-white">Home</a>
+            
+            <!-- Dropdown Menu -->
+            <div class="dropdown ml-3 panelcolora">
+                <button class="btn btn-secondary dropdown-toggle panelcolora " type="button" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
+                    Mastrey Entry
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="mainitem.html">Main Items</a>
+                    <a class="dropdown-item" href="subitem.html">Sub Items</a>
+                    <a class="dropdown-item" href="#">Action 3</a>
+                </div>
+            </div>
+        </div>
+
+
+
+      
+        <div class="d-flex align-items-center">
+            <div class="order-icon ml-3 position-relative cart">
+                
+                <a href="../order.html"><i class="fa-solid fa-gavel fa-rotate-270" style="color: #f7f9fd;"></i><span class="order-count badge badge-danger position-absolute">
+                    5</span></a>
+            </div>
+
+            <div class="adminicon"> <i class="fa-solid fa-circle-user fa-lg" style="color: #b9bcc1;"></i><span>Hi,Admin</span>&nbsp;
+            </div>
+          <div>  <a href="admin_settings.html"><i class="fa-solid fa-gears fa-sm" style="color: #ffffff;"></i>
+          </div> </a>  
+        
+
+       
+        </div>
+    </div>
+
+
+
+
+
+    <div class="dash2"><h3>EDIT SUB ITEMS</h3> <span class="dash"><i class="fa-solid fa-gauge-high " style="color: #3b3d3f;"></i>  Home > Sub Items > Edit Sub Items</span></div>
+   
+        <div class="container">
+        <form id="editSubItemForm">
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <div  class="main1 text-white">Main Item</div>
+                    <select class="form-control" id="mainItem">
+                        <option value="">Select Main Item</option>
+                        <!-- Options will be dynamically added here -->
+                    </select>
+              
+     
+                    <input type="text" class="form-control input" id="subItem">
+              
+             
+                    <input type="number" class="form-control input" id="price">
+               
+                    <label for="image" style="font-weight: bolder; margin-top: 10px;">Image Upload </label>
+                    <input type="file" class="form-control-file input" id="image">
+                    <img id="currentImage" src="" alt="Current Image">
+                </div>
+            </div>
+            <div>   <button type="submit" class="btn-success bttn">Update</button>&nbsp;
+            <button type="reset" class=" btn-danger bttn">Cancel</button></div>
+         
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../js/adminindex.js"></script>
+    <script>
+        // JavaScript for toggling the dropdown menu
+        document.getElementById('dropdownMenuButton').addEventListener('click', function() {
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+            dropdownMenu.classList.toggle('show');
+        });
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown-toggle')) {
+                const dropdowns = document.getElementsByClassName('dropdown-menu');
+                for (let i = 0; i < dropdowns.length; i++) {
+                    const openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        };
+    </script>
+    <script>
+        let subItems = JSON.parse(localStorage.getItem('subItems')) || [];
+        let mainItems = ['Main Item 1', 'Main Item 2', 'Main Item 3']; // Example main items
+        const editSubItemId = localStorage.getItem('editSubItemId');
+        const editSubItem = subItems.find(item => item.id == editSubItemId);
+
+        document.addEventListener('DOMContentLoaded', function() {
+            renderMainItemOptions();
+            if (editSubItem) {
+                document.getElementById('mainItem').value = editSubItem.mainItem;
+                document.getElementById('subItem').value = editSubItem.subItem;
+                document.getElementById('price').value = editSubItem.price;
+                document.getElementById('currentImage').src = editSubItem.image;
+            }
+        });
+
+        function renderMainItemOptions() {
+            const mainItemSelect = document.getElementById('mainItem');
+            mainItems.forEach(item => {
+                const option = document.createElement('option');
+                option.value = item;
+                option.textContent = item;
+                mainItemSelect.appendChild(option);
+            });
+        }
+
+        document.getElementById('editSubItemForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const mainItem = document.getElementById('mainItem').value;
+            const subItem = document.getElementById('subItem').value;
+            const price = document.getElementById('price').value;
+            const imageInput = document.getElementById('image').files[0];
+
+            if (mainItem && subItem && price) {
+                if (imageInput) {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        editSubItem.image = e.target.result;
+                        updateSubItem(mainItem, subItem, price, editSubItem.image);
+                    };
+                    reader.readAsDataURL(imageInput);
+                } else {
+                    updateSubItem(mainItem, subItem, price, editSubItem.image);
+                }
+            } else {
+                alert('Please fill out all fields.');
+            }
+        });
+
+        function updateSubItem(mainItem, subItem, price, image) {
+            editSubItem.mainItem = mainItem;
+            editSubItem.subItem = subItem;
+            editSubItem.price = price;
+            editSubItem.image = image;
+
+            localStorage.setItem('subItems', JSON.stringify(subItems));
+            window.location.href = 'subitem.html';
+        }
+    </script>
+</body>
+</html>

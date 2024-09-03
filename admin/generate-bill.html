@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Bill</title>
+    <script src="https://kit.fontawesome.com/1ba2b0d308.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/style2.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .container { margin-top: 50px;
+        border: 2px solid black;
+    border-radius: 10px; }
+        .bill-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .bill-header h2 { margin: 0; }
+        .bill-details { margin-bottom: 30px; }
+        .bill-details .from, .bill-details .to { margin-bottom: 20px; }
+        .order-summary { margin-bottom: 20px; }
+        .order-summary table { width: 100%; }
+        .order-summary table, .order-summary th, .order-summary td { border: 1px solid #dee2e6; border-collapse: collapse; }
+        .order-summary th, .order-summary td { padding: 8px; text-align: left; }
+        .order-summary th { background-color: #f8f9fa; }
+        .totals { text-align: right; margin-bottom: 20px; }
+        .totals .total-item { margin-bottom: 10px; }
+        .btn-container { display: flex; justify-content: space-between; }
+       .headingr{
+        margin-left: 1200px;
+        margin-top: 70px;
+       } 
+        
+    </style>
+</head>
+<body>
+
+
+    <div class="admin-header d-flex justify-content-between align-items-center p-2 panelcolora text-white">
+        <div class="d-flex align-items-center  leftpanel">
+            <img src="../images/restaurant_logo.png" alt="Logo" class="logo mr-2">
+            <a href="index.html" class="text-white">Home</a>
+            
+            <!-- Dropdown Menu -->
+            <div class="dropdown ml-3 panelcolora">
+                <button class="btn btn-primary dropdown-toggle  "  style="background: rgb(9, 81, 183);" type="button" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
+                    Mastrey Entry
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="mainitem.html">Main Items</a>
+                    <a class="dropdown-item" href="subitem.html">Sub Items</a>
+                    <a class="dropdown-item" href="#">Action 3</a>
+                </div>
+            </div>
+        </div>
+
+
+      
+        <div class="d-flex align-items-center">
+            <div class="order-icon ml-3 position-relative cart">
+                
+                <a href="../order.html"><i class="fa-solid fa-gavel fa-rotate-270" style="color: #f7f9fd;"></i><span class="order-count badge badge-danger position-absolute">
+                    5</span></a>
+            </div>
+
+            <div class="adminicon"> <i class="fa-solid fa-circle-user fa-lg" style="color: #b9bcc1;"></i><span>Hi,Admin</span>&nbsp;
+            </div>
+          <div>  <a href="admin_settings.html"><i class="fa-solid fa-gears fa-sm" style="color: #ffffff;"></i>
+          </div> </a>  
+        
+
+       
+        </div>
+    </div>
+
+
+
+
+
+
+
+    
+        <div  class="headingr"> <i class="fa-solid fa-gauge-high " style="color: #3b3d3f;"></i> Home > Invoice</div>
+    <div class="container ">
+        <div class="bill-header ">
+            
+            <h3><i class="fa-solid fa-utensils fa-sm" style="color: #000000;"></i> Food's Day</h3>
+            <span id="billDate"></span>
+        </div>
+        <div class="bill-details row col-md-5">
+            <div class="from">
+                <h5>From:</h5>
+                <p>Food's Day</p>
+                <p>New York, Louise road</p>
+            </div>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="to">
+                <h5>To:</h5>
+                <p id="customerName"></p>
+                <p id="customerAddress"></p>
+                <p id="customerEmail"></p>
+                <p id="customerMobile"></p>
+            </div>
+           </div>
+
+            
+             <div class="order-summary ">
+             <h4>Order Details</h4>
+             <table>
+                <thead>
+                    <tr>
+                        <th>Serial No</th>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody id="orderItemsTableBody">
+                    <!-- Ordered items will be dynamically added here -->
+                </tbody>
+              </table>
+            </div>
+            <div class="totals">
+            <div class="total-item">Subtotal: <span id="subtotal"></span></div>
+            <div class="total-item">Shipping Charges: <span id="shippingCharges">$5.00</span></div>
+            <div class="total-item"><strong>Grand Total: <span id="grandTotal"></span></strong></div>
+        </div>
+        <div class="btn-container">
+            <button class="btn btn-secondary" onclick="printBill()">Print</button>
+            <div>
+                <button class="btn btn-primary" onclick="generateBill()">Generate PDF</button>
+                <button class="btn btn-success" onclick="submitPayment()"><i class="fa-regular fa-credit-card fa-sm" style="color: #e8e8e8;"></i> Submit Payment</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="../js/adminindex.js"></script>
+    <script src="../js/adminnavbar.js"></script>
+    <script>
+        const orders = [
+            { serialNo: 1, name: 'John Doe', email: 'john@example.com', mobile: '1234567890', address: '123 Main St', area: 'Downtown', landmark: 'Near Park', deliveryDate: '2024-06-12', deliveryTime: '13:00', items: [{ serialNo: 1, item: 'Pizza', quantity: 2, amount: 20 }, { serialNo: 2, item: 'Pasta', quantity: 1, amount: 15 }] },
+            { serialNo: 2, name: 'Jane Smith', email: 'jane@example.com', mobile: '0987654321', address: '456 Elm St', area: 'Uptown', landmark: 'Near Mall', deliveryDate: '2024-06-10', deliveryTime: '15:00', items: [{ serialNo: 1, item: 'Burger', quantity: 3, amount: 30 }, { serialNo: 2, item: 'Fries', quantity: 2, amount: 10 }] }
+            // Add more orders as needed
+        ];
+
+        function loadBillDetails() {
+            const serialNo = parseInt(localStorage.getItem('viewOrderSerialNo'));
+            const order = orders.find(order => order.serialNo === serialNo);
+
+            if (order) {
+                const today = new Date();
+                const date = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+                document.getElementById('billDate').textContent = date;
+
+                document.getElementById('customerName').textContent = order.name;
+                document.getElementById('customerAddress').textContent = order.address;
+                document.getElementById('customerEmail').textContent = order.email;
+                document.getElementById('customerMobile').textContent = order.mobile;
+
+                const orderItemsTableBody = document.getElementById('orderItemsTableBody');
+                orderItemsTableBody.innerHTML = '';
+                let subtotal = 0;
+                order.items.forEach(item => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${item.serialNo}</td>
+                        <td>${item.item}</td>
+                        <td>${item.quantity}</td>
+                        <td>$${item.amount}</td>
+                    `;
+                    subtotal += item.amount * item.quantity;
+                    orderItemsTableBody.appendChild(row);
+                });
+
+                document.getElementById('subtotal').textContent = `$${subtotal}`;
+                const shippingCharges = 5.00;
+                document.getElementById('grandTotal').textContent = `$${subtotal + shippingCharges}`;
+            }
+        }
+
+        function printBill() {
+            window.print();
+        }
+
+        function generateBill() {
+            alert('Bill Generated!');
+        }
+
+        function submitPayment() {
+            alert('Payment Submitted!');
+        }
+
+        document.addEventListener('DOMContentLoaded', loadBillDetails);
+    </script>
+</body>
+</html>
